@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>UPSC Quiz</title>
+</head>
+<body style="background:linear-gradient(#006464, #90EE90); color:white; font-family:sans-serif;">
+<h2 style="text-align:center;">UPSC Quiz</h2>
+<form method="post">
+  {% csrf_token %}
+  {% for q in questions %}
+  <div style="margin:20px; background:rgba(0,0,0,0.2); padding:15px; border-radius:10px;">
+    <p><b>Q{{ forloop.counter }}.</b> {{ q.question|safe }}</p>
+    {% for opt in q.options %}
+      <label><input type="radio" name="q{{ forloop.parentloop.counter0 }}" value="{{ opt }}"> {{ opt }}</label><br>
+    {% endfor %}
+  </div>
+  {% endfor %}
+  <input type="hidden" name="questions_data" value="{{ questions }}">
+  <div style="text-align:center;">
+    <button type="reset" style="padding:10px 25px; border:none; border-radius:8px; background:#ccc;">Undo</button>
+    <button type="submit" style="padding:10px 25px; border:none; border-radius:8px; background:#ff9933; color:white;">Submit</button>
+  </div>
+</form>
+</body>
+</html>

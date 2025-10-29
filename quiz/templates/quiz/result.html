@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Results</title>
+</head>
+<body style="background:linear-gradient(#8b2289, #fc2fff); font-family:sans-serif; color:white;">
+<h2 style="text-align:center;">Your Result</h2>
+<h3 style="text-align:center;">Score: {{ score }} / {{ total }}</h3>
+<div style="margin:20px;">
+  {% for r in results %}
+  <div style="background:rgba(0,0,0,0.3); padding:10px; border-radius:10px; margin-bottom:10px;">
+    <p><b>Q{{ forloop.counter }}.</b> {{ r.question|safe }}</p>
+    <p>Your Answer: {{ r.selected }}</p>
+    <p>Correct Answer: {{ r.correct }}</p>
+  </div>
+  {% endfor %}
+</div>
+<div style="text-align:center;">
+  <a href="{% url 'home' %}" style="color:white; background:orange; padding:10px 20px; border-radius:8px; text-decoration:none;">Play Again</a>
+</div>
+</body>
+</html>

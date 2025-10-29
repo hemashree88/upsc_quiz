@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Question Count</title>
+</head>
+<body style="text-align:center; background:linear-gradient(#654321, #D2B48C); color:white; font-family:sans-serif;">
+<h1 style="padding-top:150px;">Select Number of Questions</h1>
+<form action="{% url 'quiz_page' %}" method="get">
+  <input type="hidden" name="category" value="{{ category }}">
+  <button name="count" value="5" style="padding:15px 30px; margin:10px;">5</button>
+  <button name="count" value="10" style="padding:15px 30px; margin:10px;">10</button>
+  <button name="count" value="20" style="padding:15px 30px; margin:10px;">20</button>
+</form>
+</body>
+</html>
